@@ -31,59 +31,7 @@ Công cụ sử dụng:
 ![Hình Use Case Diagram (Khách hàng, Kỹ thuật viên, chức năng chính)](https://github.com/n23dcpt013-wq/lab02/blob/main/UseCase_OnlineShop.drawio.png)
 
  2.2 Sequence Diagram (Lab 03)
- Sequence Diagram – ATM Rút tiền  
-
-
- 
-```mermaid
-sequenceDiagram
-    autonumber
-    actor KhachHang as Khách hàng
-    participant ATM_UI as ATM UI
-    participant ATM_Core as ATM Controller
-    participant Card as Card Reader
-    participant Core as Hệ thống Ngân hàng
-    participant Dispenser as Bộ phát tiền
-    participant Printer as Máy in biên lai
-
-    KhachHang->>Card: InsertCard()
-    Card-->>ATM_Core: CardInserted
-    ATM_Core->>ATM_UI: Display("Nhập PIN")
-    KhachHang->>ATM_UI: EnterPIN(pin)
-    ATM_UI-->>ATM_Core: SubmitPIN(pin)
-    ATM_Core->>Core: AuthorizePIN(PAN, pin)
-    Core-->>ATM_Core: AuthResult(OK/FAIL)
-
-    alt PIN sai
-        ATM_Core-->>ATM_UI: Display("PIN sai, nhập lại")
-    else PIN đúng
-        KhachHang->>ATM_UI: Select("Withdraw")
-        ATM_Core->>ATM_UI: Display("Nhập số tiền")
-        KhachHang->>ATM_UI: EnterAmount(amount)
-        ATM_UI-->>ATM_Core: SubmitAmount(amount)
-        ATM_Core->>Core: DebitRequest(PAN, amount)
-        Core-->>ATM_Core: Approved(txId, newBalance) / Declined(reason)
-
-        alt Declined
-            ATM_Core-->>ATM_UI: Display("Không đủ số dư / vượt hạn mức")
-            ATM_Core->>Card: Eject()
-        else Approved
-            ATM_Core->>Dispenser: Dispense(amount)
-            Dispenser-->>ATM_Core: DispenseResult(OK/JAM/OutOfCash)
-
-            alt Lỗi phát tiền
-                ATM_Core->>Core: Reversal(txId)
-                ATM_Core-->>ATM_UI: Display("Lỗi phát tiền")
-            else Thành công
-                opt In biên lai
-                    ATM_Core->>Printer: Print(txId, amount, time, balance)
-                    Printer-->>ATM_Core: PrintDone()
-                end
-                ATM_Core->>Card: Eject()
-                ATM_Core-->>ATM_UI: Display("Vui lòng nhận tiền & thẻ")
-            end
-        end
-    end
+![ Sequence Diagram – ATM Rút tiền](https://github.com/n23dcpt013-wq/lab10/blob/main/lab03.png)  
 
 
 
