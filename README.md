@@ -32,6 +32,7 @@ Công cụ sử dụng:
 
  2.2 Sequence Diagram (Lab 03)
  Sequence Diagram – ATM Rút tiền  
+ 
 ```mermaid
 sequenceDiagram
     autonumber
@@ -82,6 +83,8 @@ sequenceDiagram
         end
     end
 
+
+
  2.3 Class Diagram (Lab 06)
 ![Hình Class Diagram ATM, Account, Transaction](https://github.com/n23dcpt013-wq/lab06/blob/main/atm%20class.png)
 
@@ -89,7 +92,7 @@ sequenceDiagram
  3. Database & Code minh hoạ
 
  3.1 ERD + Database (Lab 05)
-![Hình ERD]()
+![Hình ERD](https://github.com/n23dcpt013-wq/lab10/blob/main/erd.png)
 
 script 
 
@@ -154,8 +157,8 @@ TK ||--o{ GD  : "1–N\n(mỗi TK nhiều giao dịch)"
 
 
 3.2 Form Login (Lab 04)
-- HTML form + xử lý kết nối DB để đăng nhập
-![Ảnh giao diện form login]() 
+ ![HTML form](https://github.com/n23dcpt013-wq/lab04/blob/main/login.html)
+![Ảnh giao diện form login](https://github.com/n23dcpt013-wq/lab10/blob/main/Screenshot%202025-09-27%20114210.png) 
 
 3.3 Withdraw Module (Lab 07)
  Code minh họa Python/Java:  python
